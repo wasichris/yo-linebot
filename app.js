@@ -8,7 +8,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var app = express();
+
 
 // setup for linebot
 var bot = linebot({
@@ -20,6 +20,11 @@ var bot = linebot({
 bot.on('message', function(event) {
   console.log(event); //把收到訊息的 event 印出來看看
 });
+
+// linebotParser
+var app = express();
+const linebotParser = bot.parser();
+app.post('/linebot', linebotParser);
 
 
 // view engine setup
