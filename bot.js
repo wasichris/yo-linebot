@@ -1,3 +1,5 @@
+var linebot = require('linebot');
+
 // setup for linebot
 var bot = linebot({
   channelId: '1608464162',
@@ -19,7 +21,7 @@ bot.on('message', function(event) {
       console.log('error');
     });
   }
-  
+
 });
 
 
